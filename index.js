@@ -19,10 +19,8 @@ function keyPress() {
 
 
 function startGame() {
-  if (event.path[0].id === "start") {
-    document.querySelector("#start").removeEventListener("touchend", startGame);
-    nextSequence();
-  }
+  document.querySelector("#start").removeEventListener("touchend", startGame);
+  nextSequence();
 }
 
 
@@ -78,7 +76,7 @@ function resultChecker() {
     }
   } else {
     for (var i = 0; i < document.querySelectorAll(".btn").length; i++) {
-      document.querySelectorAll(".btn")[i].removeEventListener("touchend", userEvent);
+      document.querySelectorAll(".btn")[i].removeEventListener("click", userEvent);
     }
     playSound("wrong");
   }
