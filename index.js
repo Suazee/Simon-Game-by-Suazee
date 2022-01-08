@@ -76,7 +76,7 @@ function resultChecker() {
     }
   } else {
     for (var i = 0; i < document.querySelectorAll(".btn").length; i++) {
-      document.querySelectorAll(".btn")[i].removeEventListener("click", userEvent);
+      document.querySelectorAll(".btn")[i].removeEventListener("touchend", userEvent);
     }
     playSound("wrong");
   }
