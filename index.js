@@ -14,13 +14,13 @@ function keyPress() {
   pattern = [];
   userTiles = [];
   gameLevel = 1;
-  document.querySelector("#start").addEventListener("click", startGame);
+  document.querySelector("#start").addEventListener("touchend", startGame);
 }
 
 
 function startGame() {
   if (event.path[0].id === "start") {
-    document.querySelector("#start").removeEventListener("click", startGame);
+    document.querySelector("#start").removeEventListener("touchend", startGame);
     nextSequence();
   }
 }
@@ -46,7 +46,7 @@ function nextSequence() {
 
 function user() {
   for (var i = 0; i < document.querySelectorAll(".btn").length; i++) {
-    document.querySelectorAll(".btn")[i].addEventListener("click", userEvent);
+    document.querySelectorAll(".btn")[i].addEventListener("touchend", userEvent);
   }
 }
 
@@ -69,7 +69,7 @@ function resultChecker() {
   if (userTiles[userEntries - 1] === pattern[userEntries - 1]) {
     if (userTiles.length === pattern.length) {
       for (var i = 0; i < document.querySelectorAll(".btn").length; i++) {
-        document.querySelectorAll(".btn")[i].removeEventListener("click", userEvent);
+        document.querySelectorAll(".btn")[i].removeEventListener("touchend", userEvent);
       }
       gameLevel++;
       setTimeout(function() {nextSequence()}, 1000);
@@ -78,7 +78,7 @@ function resultChecker() {
     }
   } else {
     for (var i = 0; i < document.querySelectorAll(".btn").length; i++) {
-      document.querySelectorAll(".btn")[i].removeEventListener("click", userEvent);
+      document.querySelectorAll(".btn")[i].removeEventListener("touchend", userEvent);
     }
     playSound("wrong");
   }
