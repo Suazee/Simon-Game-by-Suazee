@@ -7,24 +7,23 @@ var userTiles = [];
 var userEntries = 0;
 
 
-
 function keyPress() {
   pattern = [];
   userTiles = [];
   gameLevel = 1;
-  document.querySelector("#start").addEventListener("click", startGame);
+  $("#start").click(startGame);
 }
 
 
 function startGame() {
-  document.querySelector("#start").removeEventListener("click", startGame);
+  $("#start").off("click");
   nextSequence();
 }
 
 
 function nextSequence() {
 
-  document.querySelector("#level-title").textContent = `Level ${gameLevel}`;
+  $("#level-title").text(`Level ${gameLevel}`);
 
   var randomNumber = Math.floor(Math.random() * 3);
   var chosenButton = buttonColors[randomNumber];
@@ -40,11 +39,14 @@ function nextSequence() {
 
 }
 
+
+
 function user() {
-  document.querySelector("#blue").addEventListener("click", userEvent);
-  document.querySelector("#green").addEventListener("click", userEvent);
-  document.querySelector("#red").addEventListener("click", userEvent);
-  document.querySelector("#yellow").addEventListener("click", userEvent);
+  $(".btn").click(userEvent);
+}
+
+function userPlay() {
+  $(".btn").on("click");
 }
 
 function userEvent() {
@@ -65,18 +67,14 @@ function resultChecker() {
 
   if (userTiles[userEntries - 1] === pattern[userEntries - 1]) {
     if (userTiles.length === pattern.length) {
-      for (var i = 0; i < document.querySelectorAll(".btn").length; i++) {
-        document.querySelectorAll(".btn")[i].removeEventListener("click", userEvent);
-      }
+      $(".btn").off("click");
       gameLevel++;
       setTimeout(function() {nextSequence()}, 1000);
     } else {
-      user();
+      userPlay();
     }
   } else {
-    for (var i = 0; i < document.querySelectorAll(".btn").length; i++) {
-      document.querySelectorAll(".btn")[i].removeEventListener("click", userEvent);
-    }
+    $(".btn").off("click");
     playSound("wrong");
   }
 
@@ -109,16 +107,16 @@ function playSound(color) {
 function buttonAnimation(color) {
 
   if (color === "wrong") {
-    document.querySelector("body").classList.add("game-over");
-    document.querySelector("#level-title").textContent = `Level ${gameLevel}! Game Over, Press the 'White' Button to Restart`;
+    $("body").addClass("game-over");
+    $("#level-title").text(`Level ${gameLevel}! Game Over, Press the 'White' Button to Restart`);
     setTimeout(function() {
-        document.querySelector("body").classList.remove("game-over");
+        $("body").removeClass("game-over");
     }, 500);
     keyPress();
   } else {
-    document.querySelector(`#${color}`).classList.add("pressed");
+    $(`#${color}`).addClass("pressed");
     setTimeout(function() {
-        document.querySelector(`#${color}`).classList.remove("pressed");
+        $(`#${color}`).removeClass("pressed");
     }, 200);
   }
 
