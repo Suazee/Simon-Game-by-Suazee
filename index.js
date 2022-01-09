@@ -45,9 +45,6 @@ function user() {
   $(".btn").click(userEvent);
 }
 
-function userPlay() {
-  $(".btn").on("click");
-}
 
 function userEvent() {
   userClick = event.path[0].id;
@@ -70,8 +67,6 @@ function resultChecker() {
       $(".btn").off("click");
       gameLevel++;
       setTimeout(function() {nextSequence()}, 1000);
-    } else {
-      userPlay();
     }
   } else {
     $(".btn").off("click");
