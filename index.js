@@ -32,7 +32,7 @@ function nextSequence() {
   var chosenButton = buttonColors[randomNumber];
   pattern.push(chosenButton);
 
-  document.querySelector(`#${chosenButton}`).fadeOut().fadeIn();
+  $(`#${chosenButton}`).fadeOut().fadeIn();
   playSound(chosenButton);
 
 
