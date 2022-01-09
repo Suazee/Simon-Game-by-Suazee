@@ -41,7 +41,7 @@ function nextSequence() {
 
 
 function userPlay() {
-  $(".btn").click(userPlayEvent);
+  $(".btn").on("click", userPlayEvent);
 }
 
 
