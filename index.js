@@ -43,10 +43,10 @@ function nextSequence() {
 }
 
 function user() {
-  document.querySelectorAll("#blue").addEventListener("click", userEvent);
-  document.querySelectorAll("#green").addEventListener("click", userEvent);
-  document.querySelectorAll("#red").addEventListener("click", userEvent);
-  document.querySelectorAll("#yellow").addEventListener("click", userEvent);
+  document.querySelector("#blue").addEventListener("click", userEvent);
+  document.querySelector("#green").addEventListener("click", userEvent);
+  document.querySelector("#red").addEventListener("click", userEvent);
+  document.querySelector("#yellow").addEventListener("click", userEvent);
 }
 
 function userEvent() {
