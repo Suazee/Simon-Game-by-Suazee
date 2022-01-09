@@ -1,6 +1,5 @@
 var buttonColors = ["blue", "green", "red", "yellow"];
 var pattern = [];
-var gotPattern = false;
 var gameLevel = 1;
 
 var userTiles = [];
