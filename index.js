@@ -43,9 +43,10 @@ function nextSequence() {
 }
 
 function user() {
-  for (var i = 0; i < document.querySelectorAll(".btn").length; i++) {
-    document.querySelectorAll(".btn")[i].addEventListener("click", userEvent);
-  }
+  document.querySelectorAll("#blue").addEventListener("click", userEvent);
+  document.querySelectorAll("#green").addEventListener("click", userEvent);
+  document.querySelectorAll("#red").addEventListener("click", userEvent);
+  document.querySelectorAll("#yellow").addEventListener("click", userEvent);
 }
 
 function userEvent() {
