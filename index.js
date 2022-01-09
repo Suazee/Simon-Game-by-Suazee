@@ -6,8 +6,6 @@ var gameLevel = 1;
 var userTiles = [];
 var userEntries = 0;
 
-var gameoverTitle = "Game Over, Press the 'White' Button to Restart";
-
 
 
 function keyPress() {
@@ -112,7 +110,7 @@ function buttonAnimation(color) {
 
   if (color === "wrong") {
     document.querySelector("body").classList.add("game-over");
-    document.querySelector("#level-title").textContent = gameoverTitle;
+    document.querySelector("#level-title").textContent = `Level ${gameLevel}! Game Over, Press the 'White' Button to Restart`;
     setTimeout(function() {
         document.querySelector("body").classList.remove("game-over");
     }, 500);
