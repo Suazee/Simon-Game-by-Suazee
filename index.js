@@ -42,7 +42,7 @@ function nextSequence() {
 
 function userPlay() {
   $(".btn").click(function(event) {
-    userClick = event.path[0].id;
+    var userClick = event.path[0].id;
     playSound(userClick);
     buttonAnimation(userClick);
     userTiles.push(userClick);
