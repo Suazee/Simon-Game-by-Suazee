@@ -41,20 +41,17 @@ function nextSequence() {
 
 
 function userPlay() {
-  $(".btn").on("click", userPlayEvent);
-}
+  $(".btn").click(function(event) {
+    userClick = event.path[0].id;
+    playSound(userClick);
+    buttonAnimation(userClick);
+    userTiles.push(userClick);
 
+    userEntries++;
 
-function userPlayEvent() {
-  userClick = event.path[0].id;
-  playSound(userClick);
-  buttonAnimation(userClick);
-  userTiles.push(userClick);
+    resultChecker();
 
-
-  userEntries++;
-
-  resultChecker();
+  });
 }
 
 
