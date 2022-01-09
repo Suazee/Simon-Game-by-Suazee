@@ -7,7 +7,7 @@ var userTiles = [];
 var userEntries = 0;
 
 
-function keyPress() {
+function whiteButtonToStart() {
   pattern = [];
   userTiles = [];
   gameLevel = 1;
@@ -35,18 +35,18 @@ function nextSequence() {
 
   userEntries = 0;
   userTiles = [];
-  user();
+  userPlay();
 
 }
 
 
 
-function user() {
-  $(".btn").click(userEvent);
+function userPlay() {
+  $(".btn").click(userPlayEvent);
 }
 
 
-function userEvent() {
+function userPlayEvent() {
   userClick = event.path[0].id;
   playSound(userClick);
   buttonAnimation(userClick);
@@ -107,7 +107,7 @@ function buttonAnimation(color) {
     setTimeout(function() {
         $("body").removeClass("game-over");
     }, 500);
-    keyPress();
+    whiteButtonToStart();
   } else {
     $(`#${color}`).addClass("pressed");
     setTimeout(function() {
@@ -119,4 +119,4 @@ function buttonAnimation(color) {
 
 
 
-keyPress();
+whiteButtonToStart();
