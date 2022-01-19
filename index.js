@@ -7,9 +7,9 @@ let gameLevel = 1;
 let userTiles = [];
 let userEntries = 0;
 
-const randomNumber;
-const chosenButton;
-const userClick;
+let randomNumber;
+let chosenButton;
+let userClick;
 let sound;
 let soundId;
 
