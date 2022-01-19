@@ -50,7 +50,8 @@ function nextSequence() {
 
 function userPlay() {
   $(".btn").click(function(event) {
-    userClick = event.path[0].id;
+    userClick = event.target.id;
+    console.log(userClick);
     playSound(userClick);
     buttonAnimation(userClick);
     userTiles.push(userClick);
