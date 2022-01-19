@@ -1,9 +1,17 @@
-var buttonColors = ["blue", "green", "red", "yellow"];
-var pattern = [];
-var gameLevel = 1;
+const buttonColors = ["blue", "green", "red", "yellow"];
+const soundList = ["sounds/blue.mp3", "sounds/green.mp3", "sounds/red.mp3", "sounds/yellow.mp3", "sounds/wrong.mp3"];
 
-var userTiles = [];
-var userEntries = 0;
+let pattern = [];
+let gameLevel = 1;
+
+let userTiles = [];
+let userEntries = 0;
+
+const randomNumber;
+const chosenButton;
+const userClick;
+let sound;
+let soundId;
 
 
 function whiteButtonToStart() {
@@ -24,8 +32,8 @@ function nextSequence() {
 
   $("#level-title").text(`Level ${gameLevel}`);
 
-  var randomNumber = Math.floor(Math.random() * 3);
-  var chosenButton = buttonColors[randomNumber];
+  randomNumber = Math.floor(Math.random() * 3);
+  chosenButton = buttonColors[randomNumber];
   pattern.push(chosenButton);
 
   $(`#${chosenButton}`).fadeOut().fadeIn();
@@ -42,7 +50,7 @@ function nextSequence() {
 
 function userPlay() {
   $(".btn").click(function(event) {
-    var userClick = event.path[0].id;
+    userClick = event.path[0].id;
     playSound(userClick);
     buttonAnimation(userClick);
     userTiles.push(userClick);
@@ -73,7 +81,6 @@ function resultChecker() {
 
 
 function playSound(color) {
-  var soundList = ["sounds/blue.mp3", "sounds/green.mp3", "sounds/red.mp3", "sounds/yellow.mp3", "sounds/wrong.mp3"];
 
   if (color === "blue") {
     soundId = 0;
@@ -88,8 +95,8 @@ function playSound(color) {
     buttonAnimation("wrong");
   }
 
-  var sound = soundList[soundId];
-  var audio = new Audio(sound);
+  sound = soundList[soundId];
+  let audio = new Audio(sound);
   audio.play();
 }
 
