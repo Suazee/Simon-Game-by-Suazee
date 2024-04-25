@@ -32,7 +32,7 @@ function nextSequence() {
 
   $("#level-title").text(`Level ${gameLevel}`);
 
-  randomNumber = Math.floor(Math.random() * 3 + 1);
+  randomNumber = Math.floor(Math.random() * 4 + 1);
   chosenButton = buttonColors[randomNumber];
   pattern.push(chosenButton);
 
